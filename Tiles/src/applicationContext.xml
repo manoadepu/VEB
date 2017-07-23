@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="mySQL" class="com.javatpoint.Beans.MySQL">
+			<property name="Url" value="jdbc:mysql://localhost:3306/veb" />
+			<property name="userName" value="root" />
+			<property name="passowrd" value="manohara" />
+			<property name="className" value="com.mysql.jdbc.Driver" />
+	</bean>
+</beans>
