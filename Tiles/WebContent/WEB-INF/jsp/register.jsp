@@ -10,6 +10,27 @@
 	right: 500px;
 	background-color: aqua;
 }
+#mheader{
+	background-color: linear-gradient(to bottom, #b23435 0%,#891516 100%);
+}
+#registerForm_header{
+	font-family:"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 2em;
+	color:black;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-weight: bold;
+	clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#registerBtn{
+	background-color:black;
+	font-family:"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+body {
+	font-family:font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
 </style>
 </head>
 <body>
@@ -37,7 +58,7 @@
 					placeholder="Social Security Number" required="" autofocus="" />
 					<input type="text" class="form-control" name="question" placeholder="Enter a Security Question" required="" autofocus="" />
 					<input type="text" class="form-control" name="answer" placeholder="Enter Security Question's Answer" required="" autofocus="" />
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+				<button class="btn btn-lg btn-primary btn-block" id="registerBtn" type="submit">Register</button>
 			</form>
 		</center>
 		<div class="modal fade" id="myModal" role="dialog">
@@ -45,7 +66,7 @@
 
 				<!-- Modal content-->
 				<div class="modal-content">
-					<div class="modal-header">
+					<div id="mheader" class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
 						<h4 class="modal-title">Registration Successful</h4>
 					</div>

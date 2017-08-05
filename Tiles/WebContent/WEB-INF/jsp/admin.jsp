@@ -11,12 +11,22 @@
 	left:100px
 	display: inline;
 }
+#registerForm_header {
+	font-size: 2em;
+	color:black;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-weight: bold;
+	clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
 </style>
 </head>
 <body>
 </br></br></br></br></br></br></br></br></br>
 <div id="reg" class="container" >
-  <center><h3 id="registerForm_header">Login as Admin</h2></center>
+  <center><h2 id="registerForm_header">Login as Admin</h2></center></br>
 		<center><form class="form-signin" id=rForm action = "adminLogin" method="post">
 			<input type="text" class="form-control" name="username"
 				placeholder="User Name" required="" autofocus="" id="username"/>

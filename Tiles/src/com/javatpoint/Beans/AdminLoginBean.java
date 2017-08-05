@@ -18,5 +18,8 @@ public class AdminLoginBean {
 		this.password = password;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "AdminLoginBean [username=" + username + ", password=" + password + "]";
+	}
 }

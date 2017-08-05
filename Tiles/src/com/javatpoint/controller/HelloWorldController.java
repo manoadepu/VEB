@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.javatpoint.Beans.AdminLoginBean;
 import com.javatpoint.Beans.LoginBean;
 import com.javatpoint.Beans.RegisterBean;
+import com.javatpoint.DAO.AdminLoginDAO;
 import com.javatpoint.DAO.LoginVerificationDAO;
 import com.javatpoint.DAO.RegisterDAO;
 import com.javatpoint.form.Contact;
@@ -26,11 +27,33 @@ public class HelloWorldController {
 		String message = "Hello World, Spring MVC @ Javatpoint";
 		return new ModelAndView("hello", "message", message);
 	}
-
+	@RequestMapping("/vote")
+	public ModelAndView vote() {
+		System.out.println("wait!");
+		String message = "Hello World, Spring MVC @ Javatpoint";
+		return new ModelAndView("vote", "message", message);
+	}
+	@RequestMapping("/parties")
+	public ModelAndView parties() {
+		System.out.println("wait!");
+		String message = "Hello World, Spring MVC @ Javatpoint";
+		return new ModelAndView("parties", "message", message);
+	}
+	@RequestMapping("/results")
+	public ModelAndView results() {
+		System.out.println("wait!");
+		String message = "Hello World, Spring MVC @ Javatpoint";
+		return new ModelAndView("results", "message", message);
+	}
+	@RequestMapping("/analysis")
+	public ModelAndView analysis() {
+		System.out.println("wait!");
+		String message = "Hello World, Spring MVC @ Javatpoint";
+		return new ModelAndView("analysis", "message", message);
+	}
 	@RequestMapping(value = "/loginPage", method = RequestMethod.POST)
 	public ModelAndView loginForm(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginBean") LoginBean loginBean) {
-		System.out.println(loginBean.getValidationNumber());
 		LoginVerificationDAO lvDAO = new LoginVerificationDAO();
 		lvDAO.verifyLogin(loginBean);
 		return new ModelAndView("contact", "command", new Contact());
@@ -68,9 +91,10 @@ public class HelloWorldController {
 
 	@RequestMapping(value = "/adminLogin", method = RequestMethod.POST)
 	public ModelAndView adminActions(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("adminloginBean") AdminLoginBean adminloginBean) {
-		System.out.println(adminloginBean.getUsername() + ", " + adminloginBean.getPassword());
-		return new ModelAndView("adminActions");
+			@ModelAttribute("adminloginBean") AdminLoginBean adminLoginBean) {
+		AdminLoginDAO adminLoginDAO = new AdminLoginDAO();
+		String result = adminLoginDAO.adminLoginVerification(adminLoginBean);
+		return new ModelAndView(result);
 	}
 	
 }

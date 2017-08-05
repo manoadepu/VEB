@@ -6,23 +6,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import org.eclipse.jdt.internal.compiler.ast.WhileStatement;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.javatpoint.Beans.AddParty;
 import com.javatpoint.Beans.MySQL;
 
+
+
 public class AddPartyDAO {
+	@SuppressWarnings("finally")
 	public String addPartyAndCandidate(AddParty addParty) {
-		String result = "failure";
+		String result = "adminActions";
 		int partyId;
 		Boolean partyname = true;
 		
 		try {
-			
-			System.out.println("add party object data from AddPartyDAO: " + addParty.toString());
-			result="success";
 			ApplicationContext context =
 			    	  new ClassPathXmlApplicationContext(new String[] {"applicationContext.xml"});
 			MySQL mySQL = (MySQL)context.getBean("mySQL");
@@ -87,8 +86,10 @@ public class AddPartyDAO {
 				}
 			}
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+			result="adminActionsError";
 			}
-		return result;
+		finally {
+			return result;
+		}
 	}
 }

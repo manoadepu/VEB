@@ -7,9 +7,44 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-.modal-header {
-   background-color:#428bca;
+.btn-group-lg>.btn, .btn-lg {
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
+#modal-submit{
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	background-color:black;
+}
+
+.modal-title {
+	font-size: 2em;
+	color:black;
+	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+.modal-header{
+	background:linear-gradient(to bottom, #b23435 0%,#891516 100%);
+}
+#startElection{
+	background-color:black;
+	border-color:black;
+}
+#addParty{
+	background-color:black;
+	border-color:black;
+}
+#StopElection{
+	background-color:black;
+	border-color:black;
+}
+#showResults{
+	background-color:black;
+	border-color:black;
+}
+#lockResults{
+	background-color:black;
+	border-color:black;
+}
+
+
 </style>
 
 <script type="text/javascript">
@@ -17,36 +52,44 @@
 		$("#addParty").click(function() {
 			$("#actionModalHeading").text("Add Party/Candidates");
 			$("#modalForm").attr("action","addParty");
-			$("#modalForm").attr("method","GET");
+			$("#modalForm").attr("method","POST");
 			$("#modalForm").append('<center><input type="text" class="form-control" name="Party" id="Party" placeholder=" Enter Party Name"/></center></br>');
 			$("#modalForm").append('<center><input type="text" class="form-control" name="CandidateName" id="CandidateName" placeholder=" Enter candidate Name"/></center></br>');
-			$("#modalForm").append('</br><input type="submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
+			$("#modalForm").append('</br><input type="submit" id="modal-submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
 			$('#myModal').modal('show');
 		});
 	
 		$("#startElection").click(function() {
+			$("#modalForm").attr("action","startElection");
+			$("#modalForm").attr("method","POST");
 			$("#actionModalHeading").text("Are you sure you want to start the election process ?");
-			$("#modalForm").append('</br><input type="submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
+			$("#modalForm").append('</br><input type="submit" id="modal-submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
 			$('#myModal').modal('show');
 			
 		});
 	
 		$("#StopElection").click(function() {
+			$("#modalForm").attr("action","stopElection");
+			$("#modalForm").attr("method","POST");
 			$("#actionModalHeading").text("Are you sure you want to stop the election process ?");
-			$("#modalForm").append('</br><input type="submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
+			$("#modalForm").append('</br><input type="submit" id="modal-submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
 			$('#myModal').modal('show');
 		});
 	
 		$("#showResults").click(function() {
+			$("#modalForm").attr("action","showResults");
+			$("#modalForm").attr("method","POST");
 			$("#actionModalHeading").text("Are you sure you want to show the results ?");
-			$("#modalForm").append('</br><input type="submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
+			$("#modalForm").append('</br><input type="submit" id="modal-submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
 			$('#myModal').modal('show');
 			
 		});
 	
 		$("#lockResults").click(function() {
+			$("#modalForm").attr("action","lockResults");
+			$("#modalForm").attr("method","POST");
 			$("#actionModalHeading").text("Are you sure you want to lock results ?");
-			$("#modalForm").append('</br><input type="submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
+			$("#modalForm").append('</br><input type="submit" id="modal-submit" class="btn btn-lg btn-primary btn-block" type="submit" align="right""/>');
 			$('#myModal').modal('show');
 			
 		});
@@ -57,24 +100,6 @@
 			$(this).data('bs.modal', null);
 		});
 	});  
-
-	/*   $(document).ready(function() {
-			$('#modalForm').submit(function(e) {
-				e.preventDefault();
-				console.log('in javascript');
-				var formData = $('#modalForm').serialize();
-				console.log("form data: "+formData);
-				$.ajax({
-					data : formData,
-					type : 'GET',
-					url : 'addParty',
-					success : function(result) {
-						console.log("ajax success ");
-					}
-				});
-			});
-		}); */
-	  
 </script>
 
 </head>

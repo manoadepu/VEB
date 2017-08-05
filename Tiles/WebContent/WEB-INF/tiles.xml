@@ -6,7 +6,6 @@
 	<definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
-		<put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
 	</definition>
@@ -26,12 +25,37 @@
 		<put-attribute name="title" value="Hello Spring MVC" />
 		<put-attribute name="body" value="/WEB-INF/jsp/hello.jsp" />
 	</definition>
-
+	<definition name="vote" extends="base.definition">
+		<put-attribute name="title" value="Hello Spring MVC" />
+		<put-attribute name="body" value="/WEB-INF/jsp/vote.jsp" />
+	</definition>
+	<definition name="parties" extends="base.definition">
+		<put-attribute name="title" value="Hello Spring MVC" />
+		<put-attribute name="body" value="/WEB-INF/jsp/parties.jsp" />
+	</definition>
+	<definition name="results" extends="base.definition">
+		<put-attribute name="title" value="Hello Spring MVC" />
+		<put-attribute name="body" value="/WEB-INF/jsp/results.jsp" />
+	</definition>
+	<definition name="analysis" extends="base.definition">
+		<put-attribute name="title" value="Hello Spring MVC" />
+		<put-attribute name="body" value="/WEB-INF/jsp/analysis.jsp" />
+	</definition>
 	<definition name="adminActions" extends="base.register">
 		<put-attribute name="title" value="Welcome Admin" />
 		<put-attribute name="body" value="/WEB-INF/jsp/adminActions.jsp" />
 	</definition>
-
+	
+	<definition name="adminActionsError" extends="base.register">
+		<put-attribute name="title" value="Welcome Admin" />
+		<put-attribute name="body" value="/WEB-INF/jsp/adminActionsError.jsp" />
+	</definition>
+	
+	<definition name="adminError" extends="base.register">
+		<put-attribute name="title" value="Admin Login Error" />
+		<put-attribute name="body" value="/WEB-INF/jsp/adminError.jsp" />
+	</definition>
+	
 	<definition name="register" extends="base.register">
 		<put-attribute name="title" value="Register" />
 		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
@@ -41,5 +65,4 @@
 		<put-attribute name="title" value="Admin" />
 		<put-attribute name="body" value="/WEB-INF/jsp/admin.jsp" />
 	</definition>
-
 </tiles-definitions>  
