@@ -2,6 +2,7 @@ package com.javatpoint.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.javatpoint.Beans.LoginBean;
 import com.javatpoint.form.Contact;  
 @Controller  
+@Scope("session")
 @SessionAttributes  
 public class ContactController {  
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)  

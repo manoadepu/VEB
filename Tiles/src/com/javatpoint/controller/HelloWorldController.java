@@ -3,6 +3,7 @@ package com.javatpoint.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,11 @@ import com.javatpoint.DAO.RegisterDAO;
 import com.javatpoint.form.Contact;
 
 @Controller
+@Scope("session")
 public class HelloWorldController {
 
+	String user;
+	
 	@RequestMapping("/hello")
 	public ModelAndView helloWorld() {
 		System.out.println("wait!");
@@ -54,9 +58,15 @@ public class HelloWorldController {
 	@RequestMapping(value = "/loginPage", method = RequestMethod.POST)
 	public ModelAndView loginForm(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("loginBean") LoginBean loginBean) {
+		ModelAndView mv;
 		LoginVerificationDAO lvDAO = new LoginVerificationDAO();
-		lvDAO.verifyLogin(loginBean);
-		return new ModelAndView("contact", "command", new Contact());
+		user = lvDAO.verifyLogin(loginBean);
+		if(user=="success") {
+			mv = new ModelAndView("hello");
+		}else {
+			mv = new ModelAndView("contact");
+		}
+		return mv;
 	}
 
 	@RequestMapping(value = "/register")
